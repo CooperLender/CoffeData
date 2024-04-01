@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 2 meta tags should come first in the head; any other head content should come *after* these tags -->
+
+    <!-- Bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <title>{% block title %}{% endblock %} - My Webpage</title>
+  
+  </head>
+  <body class=" bg-dark">
+     <!--nav bar-->
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <h1>{% if active_page == "page1" %} test {% endif %}</h1>
+    <h2>{% if 10 is divisibleby 2%} test2 {% endif %}</h2>
+    <div class="container mt-3  bg-dark text-white p-3" style=" width:95vw;">
+      <div class="row">
+      
+        <div class="col-sm-2 bg-dark text-white p-3 border rounded " style="height:70vh;" >
+          <div class="btn-group-vertical">
+            <a href="/" class="btn btn-info" role="button">Food</a>
+            <a href="/p2" class="btn btn-info" role="button">Travel</a>
+            <a href="/p3" class="btn btn-info" role="button">Kanji</a>
+          </div>
+        
+        </div>
+        <div class="col-sm-10 bg-dark text-white p-3 border rounded "  >
+          <h1> {{ answer }} {% block typespace %} {% endblock %} </h1> 
+        </div>
+       
+      </div>
+    </div>
+    <div class="container-fluid mt-3 bg-dark text-white p-3 border rounded" style=" width:95vw;">
+     
+     <form action= "{{ done }}" >
+      <div class="mb-3 mt-3">
+        <label for="email" class="form-label">Promt</label>
+        <textarea class="form-control" rows="5" id="Imput Message" name="text"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    
+    <!--page content-->
+    {% block content %}{% endblock %}
+    
+  </body>
+</html>
