@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% set active_page = "page1" %}
+
+{% block title %}Page 1{% endblock %}
+
+{% block content %}
+    <!--page content-->
+    <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+<div class="row">
+    <div class="col-12 col-md-8">.col-12 .col-md-8</div>
+    <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+  </div>
+  
+  <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+  <div class="row">
+    <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+    <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+    <div class="col-6 col-md-4">.col-6 .col-md-4</div>
+  </div>
+  
+  <!-- Columns are always 50% wide, on mobile and desktop -->
+  <div class="row">
+    <div class="col-6">.col-6</div>
+    <div class="col-6">.col-6</div>
+  </div>
+    <h1>About the data:
+        This data takes 1312 arabica and 28 robusta (two types of coffee beans) coffee beans from different producers and rates them on a standardized scale. All of the reviewers in the project were trained by the coffee institute. The data includes metrics such as body, balance, and sweetness and creates a rating out of 100 for each coffee. The data also includes information about the coffee’s origin such as the owner of the farm, or the elevation it was farmed at. This website seeks to show to users the different trends in the data, and allows them to search through the data and create easy to understand graphs and metrics.
+        </h1>
+{% endblock %}

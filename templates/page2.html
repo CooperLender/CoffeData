@@ -1,0 +1,263 @@
+{% extends "layout.html" %}
+
+{% set active_page = "page2" %}
+
+{% block title %}Page 2{% endblock %}
+
+{% block content %}
+    <!--page content-->
+    
+<!-- <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    Dropdown button
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+  </ul>
+</div> -->
+<div class="container">
+    <div class="item item-1">
+            <h6>This data takes 1312 arabica and 28 robusta (two types of coffee beans) coffee beans from different producers and rates them on a standardized scale. All of the reviewers in the project were trained by the coffee institute. The data includes metrics such as body, balance, and sweetness and creates a rating out of 100 for each coffee. The data also includes information about the coffee’s origin such as the owner of the farm, or the elevation it was farmed at. This website seeks to show to users the different trends in the data, and allows them to search through the data and create easy to understand graphs and metrics.
+                https://github.com/jldbc/coffee-quality-database
+                </h6>
+        <!-- <div class="scrollmenu">
+        
+            <a href="#home">Home</a>
+            <a href="#news">News</a>
+            <a href="#contact">Contact</a>
+            <a href="#about">About</a>
+            <a href="#support">Support</a>
+            <a href="#blog">Blog</a>
+            <a href="#tools">Tools</a>  
+            <a href="#base">Base</a>
+            <a href="#custom">Custom</a>
+            <a href="#more">More</a>
+            <a href="#logo">Logo</a>
+            <a href="#friends">Friends</a>
+            <a href="#partners">Partners</a>
+            <a href="#people">People</a>
+            <a href="#work">Work</a>
+        </div> -->
+  
+    </div>
+    <div class="item item-2">
+        <div class = "item test">
+            <canvas id="myChart"></canvas></div>
+        <div class = "item test2">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown button
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="/p2?year=2010&category={{category}}">2010</a></li>
+                  <li><a class="dropdown-item" href="/p2?year=2011&category={{category}}">2011</a></li>
+                  <li><a class="dropdown-item" href="/p2?year=2012&category={{category}}">2012</a></li>
+                  <li><a class="dropdown-item" href="/p2?year=2013&category={{category}}">2013</a></li>
+                  <li><a class="dropdown-item" href="/p2?year=2014&category={{category}}">2014</a></li>
+                  <li><a class="dropdown-item" href="/p2?year=2015&category={{category}}">2015</a></li>
+                  <li><a class="dropdown-item" href="/p2?year=2016&category={{category}}">2016</a></li>
+                  <li><a class="dropdown-item" href="/p2?year=2017&category={{category}}">2017</a></li>
+                  <li><a class="dropdown-item" href="/p2?year=2018&category={{category}}">2018</a></li>
+                </ul>
+              </div>
+
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown button
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="/p2?year=Colombia&category={{category}}&">{{country_list}}</a></li>
+                
+                </ul>
+              </div>
+        </div>
+        <div class = "item test3">
+            <center>
+            <button type="button" class="btn btn-primary fullscreen" id="full" > 
+                <center>
+
+                    <img 
+                    class = " fullmc"
+                    src="static/items_1.20.1/crafting_table.png"
+                    alt="fullscreen" />
+                </center>
+            </button>
+        </center>
+        </div>
+
+    </div>
+   
+    <div class="item item-4" >
+       <table class="table ratings">
+            <thead>
+              <tr>
+                <th scope="col">Rating</th>
+                <th scope="col">{{category}}</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for item in list %}
+                <tr>
+                    <th scope="row">{{item["name"]}}</th>
+                    <td>{{item["value"]}}</td>
+                </tr>
+                {% endfor %}
+              <tr>
+                <th scope="row">1</th>
+                <td>{{list[0]["name"]}}</td>
+                
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+               
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                
+                
+              </tr>
+            </tbody>
+          </table> 
+          
+    </div>
+    <div class="item item-5" id="a">
+        5
+      
+    </div>
+    
+    <div class=" item item-6"  >6
+        <center> 
+            <h4>Aroma</h4> 
+            <a href="/p2?category=Aroma&year={{year}}">
+                <img 
+                class = "mcitem"
+                src="static/items_1.20.1/arrow.png"
+                alt="Aroma" />
+            </a>
+    
+        </center>
+       
+        
+    </div>
+    <div class="item item-7">7
+        <center> 
+            <h2>Flavor</h2> 
+            <a href="/p2?category=Flavor">
+                <img
+                src="static/items_1.20.1/arrow.png"
+                alt="Flavor" />
+            </a>
+    
+        </center>
+    </div>
+    <div class="item item-8">8
+        <center> 
+            <h2>Aftertaste</h2> 
+            <a href="/p2?category=Aftertaste">
+                <img
+                src="static/items_1.20.1/arrow.png"
+                alt="Aftertaste" />
+            </a>
+    
+        </center>
+    </div>
+    <div class="item item-9">9
+        <center> 
+            <h2>Acidity</h2> 
+            <a href="/p2?category=Acidity">
+                <img
+                src="static/items_1.20.1/arrow.png"
+                alt="Acidity" />
+            </a>
+    
+        </center>
+    </div>
+    <div class="item item-10">10
+        <center> 
+            <h2>Body</h2> 
+            <a href="/p2?category=Body">
+                <img
+                src="static/items_1.20.1/arrow.png"
+                alt="Body" />
+            </a>
+    
+        </center>
+    </div>
+    <div class="item item-11">11
+        <center> 
+            <h2>Balance</h2> 
+            <a href="/p2?category=Balance">
+                <img
+                src="static/items_1.20.1/arrow.png"
+                alt="Balance" />
+            </a>
+    
+        </center>
+    </div>
+    <div class="item item-12">12
+        <center> 
+            <h2>Uniformity</h2> 
+            <a href="/p2?category=Uniformity">
+                <img
+                src="static/items_1.20.1/arrow.png"
+                alt="Uniformity" />
+            </a>
+    
+        </center>
+    </div>
+    <div class="item item-12">13
+        <center> 
+            <h2>Sweetness</h2> 
+            <a href="/p2?category=Sweetness">
+                <img
+                src="static/items_1.20.1/arrow.png"
+                alt="Sweetness" />
+            </a>
+    
+        </center>
+    </div>
+  
+  </div>
+
+<!-- <div class="container">
+    <div class="row row-cols-2 row-cols-lg-3  border border-1 rounded">
+        <div class="col-4 col-lg-2 border border-1 rounded gy-5 gx-5" >Column
+            <h1 class = "gnrl" >aa</h1>
+        </div>
+        <div class="col-lg-8 border border-1 rounded gy-5 gx-5">Column</div>
+        <div class="col-lg-2 border border-1 rounded gy-5 gx-5">Column</div>
+      </div>
+    </div> -->
+  <!-- </div> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <script src="static/script.js"></script>
+   <script>
+    r = "{{aroma}}";
+const ctx = document.getElementById('myChart');
+
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['Aroma', 'Flavor', 'Aftertase', 'Acidity', 'Body', 'Balance', "Uniformity", "Sweetness"],
+    datasets: [{
+      label: '# of Votes',
+      data: ["{{aroma[0]}}", "{{aroma[1]}}", "{{aroma[2]}}", "{{aroma[3]}}", "{{aroma[4]}}", "{{aroma[5]}}",
+      "{{aroma[6]}}","{{aroma[7]}}"],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
+   </script>
+{% endblock %}
