@@ -12,8 +12,6 @@ def render_page2():
     
     if request.args:
         text = request.args['category']
-        if text == "Aroma":
-            print("a")
         m = get_best_for_category(text)
         o = get_countries()
         y = request.args['year']
@@ -25,13 +23,24 @@ def render_page2():
             r = avg_scores_country(y)
         return render_template('page2.html', category = text, list = m, aroma = r, year = y, country_list = o)
     else:
-        return render_template('page2.html', category="O", list = [{"name": "pick"}])
+        text = "Aroma"
+        m = get_best_for_category(text)
+        o = get_countries()
+        y = '2010'
+        check = y.isdigit()
+        if check:
+            y = int(y)
+            r = avg_scores_year(y)
+        else:
+            r = avg_scores_country(y)
+        return render_template('page2.html', category = text, list = m, aroma = r, year = y, country_list = o)
+        
    
 
 
 @app.route("/")
 def render_main():
-    return render_template('layout.html', done = "/done", answer = "Would you like a recipe to make? (Yes/Recipe)")
+    return render_page2()
 
 
     

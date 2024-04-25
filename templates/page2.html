@@ -18,8 +18,8 @@
   </ul>
 </div> -->
 <div class="container">
-    <div class="item item-1">
-            <h6>This data takes 1312 arabica and 28 robusta (two types of coffee beans) coffee beans from different producers and rates them on a standardized scale. All of the reviewers in the project were trained by the coffee institute. The data includes metrics such as body, balance, and sweetness and creates a rating out of 100 for each coffee. The data also includes information about the coffee’s origin such as the owner of the farm, or the elevation it was farmed at. This website seeks to show to users the different trends in the data, and allows them to search through the data and create easy to understand graphs and metrics.
+    <div class="item item-1" id ="checker">
+            <h6 id="info">This data takes 1312 arabica and 28 robusta (two types of coffee beans) coffee beans from different producers and rates them on a standardized scale. All of the reviewers in the project were trained by the coffee institute. The data includes metrics such as body, balance, and sweetness and creates a rating out of 100 for each coffee. The data also includes information about the coffee’s origin such as the owner of the farm, or the elevation it was farmed at. This website seeks to show to users the different trends in the data, and allows them to search through the data and create easy to understand graphs and metrics.
                 https://github.com/jldbc/coffee-quality-database
                 </h6>
         <!-- <div class="scrollmenu">
@@ -42,13 +42,14 @@
         </div> -->
   
     </div>
-    <div class="item item-2">
+    <div class="item item-2 an">
         <div class = "item test">
             <canvas id="myChart"></canvas></div>
-        <div class = "item test2">
+        <div class = "item test2 an">
             <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown button
+                <center>
+                <button class="btn btn-outline-light dropdown-toggle" type="button" id="yearDrop" data-bs-toggle="dropdown" aria-expanded="false">
+                  Year
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                   <li><a class="dropdown-item" href="/p2?year=2010&category={{category}}">2010</a></li>
@@ -62,26 +63,31 @@
                   <li><a class="dropdown-item" href="/p2?year=2018&category={{category}}">2018</a></li>
                 </ul>
               </div>
-
+            </center>
+            <center>
               <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown button
+                <button class="btn btn-outline-light  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="countryDrop">
+                    Country
                 </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="/p2?year=Colombia&category={{category}}&">{{country_list}}</a></li>
+                <ul class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton1" id="countrylist">
+                    {% for x in country_list%}
+                  <li><a class="dropdown-item" href="/p2?year={{x}}&category={{category}}">{{x}}</a></li>
+                    {%endfor%}
                 
                 </ul>
               </div>
+            </center>
         </div>
-        <div class = "item test3">
+        <div class = "item test3 an">
             <center>
-            <button type="button" class="btn btn-primary fullscreen" id="full" > 
+            <button type="button" class="fullscreen"  id="full" > 
                 <center>
 
                     <img 
                     class = " fullmc"
                     src="static/items_1.20.1/crafting_table.png"
                     alt="fullscreen" />
+                    
                 </center>
             </button>
         </center>
@@ -104,32 +110,23 @@
                     <td>{{item["value"]}}</td>
                 </tr>
                 {% endfor %}
-              <tr>
-                <th scope="row">1</th>
-                <td>{{list[0]["name"]}}</td>
-                
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-               
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                
-                
-              </tr>
+            
             </tbody>
           </table> 
           
     </div>
-    <div class="item item-5" id="a">
-        5
+    <div class="item item-5" id="a" >
+        
+        <img 
+        class = "gif"
+        src="static/pixelgif.gif"
+        alt="train pixel art gif" />
+    
+
       
     </div>
     
-    <div class=" item item-6"  >6
+    <div class=" item item-6 an" data-bs-toggle="tooltip" data-bs-placement="top" title="Aroma"  >6
         <center> 
             <h4>Aroma</h4> 
             <a href="/p2?category=Aroma&year={{year}}">
@@ -143,10 +140,10 @@
        
         
     </div>
-    <div class="item item-7">7
+    <div class="item item-7 an">7
         <center> 
             <h2>Flavor</h2> 
-            <a href="/p2?category=Flavor">
+            <a href="/p2?category=Flavor&year={{year}}">
                 <img
                 src="static/items_1.20.1/arrow.png"
                 alt="Flavor" />
@@ -154,10 +151,10 @@
     
         </center>
     </div>
-    <div class="item item-8">8
+    <div class="item item-8 an">8
         <center> 
             <h2>Aftertaste</h2> 
-            <a href="/p2?category=Aftertaste">
+            <a href="/p2?category=Aftertaste&year={{year}}">
                 <img
                 src="static/items_1.20.1/arrow.png"
                 alt="Aftertaste" />
@@ -165,10 +162,10 @@
     
         </center>
     </div>
-    <div class="item item-9">9
+    <div class="item item-9 an">9
         <center> 
             <h2>Acidity</h2> 
-            <a href="/p2?category=Acidity">
+            <a href="/p2?category=Acidity&year={{year}}">
                 <img
                 src="static/items_1.20.1/arrow.png"
                 alt="Acidity" />
@@ -176,10 +173,10 @@
     
         </center>
     </div>
-    <div class="item item-10">10
+    <div class="item item-10 an">10
         <center> 
             <h2>Body</h2> 
-            <a href="/p2?category=Body">
+            <a href="/p2?category=Body&year={{year}}">
                 <img
                 src="static/items_1.20.1/arrow.png"
                 alt="Body" />
@@ -187,10 +184,10 @@
     
         </center>
     </div>
-    <div class="item item-11">11
+    <div class="item item-11 an">11
         <center> 
             <h2>Balance</h2> 
-            <a href="/p2?category=Balance">
+            <a href="/p2?category=Balance&year={{year}}">
                 <img
                 src="static/items_1.20.1/arrow.png"
                 alt="Balance" />
@@ -198,10 +195,10 @@
     
         </center>
     </div>
-    <div class="item item-12">12
+    <div class="item item-12 an">12
         <center> 
             <h2>Uniformity</h2> 
-            <a href="/p2?category=Uniformity">
+            <a href="/p2?category=Uniformity&year={{year}}">
                 <img
                 src="static/items_1.20.1/arrow.png"
                 alt="Uniformity" />
@@ -209,10 +206,10 @@
     
         </center>
     </div>
-    <div class="item item-12">13
+    <div class="item item-13 an">13
         <center> 
             <h2>Sweetness</h2> 
-            <a href="/p2?category=Sweetness">
+            <a href="/p2?category=Sweetness&year={{year}}">
                 <img
                 src="static/items_1.20.1/arrow.png"
                 alt="Sweetness" />
@@ -248,7 +245,9 @@ new Chart(ctx, {
       label: '# of Votes',
       data: ["{{aroma[0]}}", "{{aroma[1]}}", "{{aroma[2]}}", "{{aroma[3]}}", "{{aroma[4]}}", "{{aroma[5]}}",
       "{{aroma[6]}}","{{aroma[7]}}"],
-      borderWidth: 1
+      borderWidth: 1,
+      borderColor: '#f7e4f2',
+      backgroundColor: '#f799de',
     }]
   },
   options: {
@@ -259,5 +258,12 @@ new Chart(ctx, {
     }
   }
 });
+Chart.defaults.backgroundColor = '#9BD0F5';
+Chart.defaults.borderColor = '#36A2EB';
+Chart.defaults.color = '#000';
+if("{{fullscreen}}" == "true")
+{
+    graphFull()
+}
    </script>
 {% endblock %}
